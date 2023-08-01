@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31505151042",
+    "project_id": "spotifycloneyt-a6c94",
+    "storage_bucket": "spotifycloneyt-a6c94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31505151042:android:9a6e14f35288a807bca9db",
+        "android_client_info": {
+          "package_name": "com.plcoding.spotifycloneyt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31505151042-lgek5kgetkj7lm6pkj57jnau09sk6co5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFU1dQbvKJpthgvyA4rhFOYPizcQJJ3A0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31505151042-lgek5kgetkj7lm6pkj57jnau09sk6co5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
