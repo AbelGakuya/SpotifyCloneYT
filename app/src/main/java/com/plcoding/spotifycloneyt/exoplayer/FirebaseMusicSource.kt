@@ -10,6 +10,10 @@ import android.support.v4.media.MediaMetadataCompat.METADATA_KEY_DISPLAY_TITLE
 import android.support.v4.media.MediaMetadataCompat.METADATA_KEY_MEDIA_ID
 import android.support.v4.media.MediaMetadataCompat.METADATA_KEY_MEDIA_URI
 import android.support.v4.media.MediaMetadataCompat.METADATA_KEY_TITLE
+import androidx.core.net.toUri
+import com.google.android.exoplayer2.source.ConcatenatingMediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.plcoding.spotifycloneyt.data.remote.MusicDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -43,6 +47,20 @@ class FirebaseMusicSource @Inject constructor(
 
         state = State.STATE_INITIALIZED
     }
+
+    fun asMediaSource(dataSourceFactory: DefaultDataSourceFactory): ConcatenatingMediaSource{
+        val concatenatingMediaSource = ConcatenatingMediaSource()
+        songs.forEach { song->
+            val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(song.getString(METADATA_KEY_MEDIA_URI).toUri())
+            concatenatingMediaSource.addMediaSource(mediaSource)
+        }
+
+        return concatenatingMediaSource
+    }
+
+
+
 
     private val onReadyListeners = mutableListOf<(Boolean) -> Unit>()
 
